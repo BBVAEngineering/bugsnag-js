@@ -3,7 +3,7 @@ require 'browserstack/local'
 require 'yaml'
 
 def browsers
-  YAML::load(File.open('features/browsers.yml'))
+  YAML::load open 'features/browsers.yml'
 end
 
 def bs_local_id

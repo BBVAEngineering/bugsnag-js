@@ -3,17 +3,7 @@
 # Any helper functions added here will be available in step
 # definitions
 
-# install rubygems
-run_required_commands([
-  ['bundle', 'install'],
-])
-
-# install node_modules
-Dir.chdir('features/fixtures') do
-  run_required_commands([
-    ['npm', 'install', '--no-package-lock'],
-  ])
-end
+require_relative './install-dependencies'
 
 # start the web server
 pid = Process.spawn('features/fixtures/node_modules/.bin/serve --port=53621 features/fixtures',

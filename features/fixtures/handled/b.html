@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/node_modules/bugsnag-js/dist/bugsnag.min.js"></script>
+    <script type="text/javascript">
+      var bugsnagClient = bugsnag({
+        apiKey: 'ABC',
+        endpoint: 'http://localhost:19291'
+      })
+    </script>
+  </head>
+  <body>
+    <pre id="bugsnag-test-state">PENDING</pre>
+    <script>
+      try {
+        foo.bar()
+      } catch (e) {
+        bugsnagClient.notify(e, {
+          beforeSend: function () {
+            setTimeout(function () {
+              document.getElementById('bugsnag-test-state').innerText = 'DONE'
+            }, 5000)
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
