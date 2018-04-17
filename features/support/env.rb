@@ -13,7 +13,10 @@ pid = Process.spawn('features/fixtures/node_modules/.bin/serve --port=53621 feat
 Process.detach pid
 
 require_relative './browserstack_driver'
-bs_local = bs_local_start
+
+unless ENV['TRAVIS'] then
+  bs_local = bs_local_start
+end
 
 $driver = driver_start
 
@@ -30,7 +33,9 @@ end
 at_exit do
   # Runs when the test run is completed
   $driver.quit
-  bs_local.stop
+  unless ENV['TRAVIS'] then
+    bs_local.stop
+  end
   begin
     Process.kill('HUP', pid)
   rescue
