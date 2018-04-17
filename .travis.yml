@@ -3,6 +3,8 @@ dist: trusty
 language: node_js
 node_js:
   - '8'
+before_install:
+  - gem install bundler -v 1.16.1
 install:
   - bundle install
   - npm install
