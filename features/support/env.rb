@@ -6,7 +6,7 @@
 require_relative './install-dependencies'
 
 # start the web server
-pid = Process.spawn('features/fixtures/node_modules/.bin/serve --port=53621 features/fixtures',
+pid = Process.spawn('features/fixtures/node_modules/.bin/serve --port=9020 features/fixtures',
   :out => '/dev/null',
   :err => '/dev/null',
 )
