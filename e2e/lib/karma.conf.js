@@ -5,7 +5,7 @@ const CI_BS_CONF = {
   video: false,
   startTunnel: false,
   tunnelIdentifier: process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
-  project: process.env.TRAVIS_REPO_SLUG + '#' + process.env.TRAVIS_BRANCH
+  project: `${process.env.TRAVIS_REPO_SLUG}//${process.env.TRAVIS_PULL_REQUEST_BRANCH || 'master'}`
 }
 
 require('./prepare')
