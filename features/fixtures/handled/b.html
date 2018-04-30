@@ -3,9 +3,10 @@
   <head>
     <script src="/node_modules/bugsnag-js/dist/bugsnag.min.js"></script>
     <script type="text/javascript">
+      var PORT = window.location.search.match(/PORT=(\d+)/)[1]
       var bugsnagClient = bugsnag({
         apiKey: 'ABC',
-        endpoint: 'http://localhost:9339'
+        endpoint: 'http://localhost:' + PORT
       })
     </script>
   </head>

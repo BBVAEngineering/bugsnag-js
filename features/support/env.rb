@@ -5,8 +5,12 @@
 
 require_relative './install-dependencies'
 
+def _port
+  '9020'
+end
+
 # start the web server
-pid = Process.spawn('features/fixtures/node_modules/.bin/serve --port=9020 features/fixtures',
+pid = Process.spawn("features/fixtures/node_modules/.bin/serve --port=#{_port} features/fixtures",
   :out => '/dev/null',
   :err => '/dev/null',
 )
@@ -23,6 +27,10 @@ $driver = driver_start
 # Scenario hooks
 Before do
   # Runs before every Scenario
+end
+
+def get_test_url path
+  "http://localhost:#{_port}#{path}?PORT=#{@script_env['MOCK_API_PORT']}"
 end
 
 After do

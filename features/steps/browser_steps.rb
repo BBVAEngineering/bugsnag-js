@@ -1,5 +1,5 @@
-When("I navigate to the URL {string}") do |url|
-  $driver.navigate.to "http://localhost:9020#{url}"
+When("I navigate to the URL {string}") do |path|
+  $driver.navigate.to get_test_url path
 end
 
 When("I let the test page run for up to {int} seconds") do |n|
