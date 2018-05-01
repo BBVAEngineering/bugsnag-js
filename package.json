@@ -1,6 +1,6 @@
 {
   "name": "bugsnag-js",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "description": "Automatically detect JavaScript errors, collect detailed diagnostic information, and get notified about errors in real-time.",
   "keywords": [
     "exception",
@@ -111,7 +111,7 @@
   },
   "dependencies": {
     "@bugsnag/cuid": "^3.0.0",
-    "@bugsnag/safe-json-stringify": "^2.0.1",
+    "@bugsnag/safe-json-stringify": "^2.1.0",
     "browserify-versionify": "^1.0.6",
     "error-stack-parser": "^2.0.1",
     "iserror": "0.0.2",
