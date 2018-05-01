@@ -44,6 +44,13 @@ def get_test_url path
   "http://localhost:#{_port}#{path}?PORT=#{@script_env['MOCK_API_PORT']}"
 end
 
+require 'yaml'
+$errors = YAML::load open 'features/fixtures/browser-errors.yml'
+def get_error_message id
+  msg = $errors[ENV['BROWSER']]
+  msg[id]
+end
+
 After do
   # Runs after every Scenario
   $driver.navigate.to 'about:blank'

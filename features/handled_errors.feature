@@ -22,6 +22,7 @@ Scenario Outline: calling notify() with Error within try/catch
   And I wait for 5 seconds
   Then I should receive 1 request
   And the request is valid for the error reporting API
+  And the exception matches the "handled" values for the current browser
 
   Examples:
     | type       |
