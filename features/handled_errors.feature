@@ -1,7 +1,8 @@
+@handled
 Feature: Reporting handled errors
 
-Scenario: calling notify() with Error
-  When I navigate to the URL "/handled/a.html"
+Scenario Outline: calling notify() with Error
+  When I navigate to the URL "/handled/<type>/a.html"
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
@@ -9,9 +10,21 @@ Scenario: calling notify() with Error
   And the exception "errorClass" equals "Error"
   And the exception "message" equals "bad things"
 
-Scenario: calling notify() with Error within try/catch
-  When I navigate to the URL "/handled/b.html"
+  Examples:
+    | type       |
+    | script     |
+    | webpack    |
+    | browserify |
+
+Scenario Outline: calling notify() with Error within try/catch
+  When I navigate to the URL "/handled/<type>/b.html"
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
   And the request is valid for the error reporting API
+
+  Examples:
+    | type       |
+    | script     |
+    | webpack    |
+    | browserify |

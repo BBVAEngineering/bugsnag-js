@@ -1,0 +1,16 @@
+import bugsnag from 'bugsnag-js'
+import config from './lib/config'
+
+var bugsnagClient = bugsnag(config)
+
+try {
+  foo.bar()
+} catch (e) {
+  bugsnagClient.notify(e, {
+    beforeSend: function () {
+      setTimeout(function () {
+        document.getElementById('bugsnag-test-state').innerText = 'DONE'
+      }, 5000)
+    }
+  })
+}

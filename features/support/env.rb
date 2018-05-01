@@ -3,7 +3,7 @@
 # Any helper functions added here will be available in step
 # definitions
 
-require_relative './install-dependencies'
+require_relative '../lib/install-dependencies'
 
 def _port
   '9020'
@@ -16,7 +16,7 @@ pid = Process.spawn("features/fixtures/node_modules/.bin/serve --port=#{_port} f
 )
 Process.detach pid
 
-require_relative './browserstack_driver'
+require_relative '../lib/browserstack_driver'
 
 unless ENV['TRAVIS'] then
   bs_local = bs_local_start
@@ -27,6 +27,17 @@ $driver = driver_start
 # Scenario hooks
 Before do
   # Runs before every Scenario
+end
+
+Before '@handled' do
+  $handled_fixtures_built ||= false
+  if !$handled_fixtures_built then
+    $handled_fixtures_built = true
+    run_required_commands([
+      [ 'features/fixtures/handled/webpack/build.sh' ],
+      [ 'features/fixtures/handled/browserify/build.sh' ],
+    ])
+  end
 end
 
 def get_test_url path
