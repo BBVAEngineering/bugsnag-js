@@ -3,8 +3,6 @@ version = (JSON.parse open('package.json', &:read))['version']
 
 unless ENV['MAZE_SKIP_INSTALL'] then
   run_required_commands([
-    # install rubygems
-    ['bundle', 'install', '--verbose'],
     # package up local bugsnag-js so it can be installed in the fixtures
     ['npm', 'pack', '--verbose'],
   ])
