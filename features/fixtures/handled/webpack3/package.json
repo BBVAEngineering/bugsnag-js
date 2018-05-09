@@ -1,0 +1,10 @@
+{
+  "name": "bugsnag-js-fixtures-handled-webpack4",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "webpack": "^3.11.0"
+  }
+}

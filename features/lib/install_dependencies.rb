@@ -1,7 +1,8 @@
 require 'json'
+require_relative './fixture_package_jsons'
 version = (JSON.parse open('package.json', &:read))['version']
 
-unless ENV['MAZE_SKIP_INSTALL'] then
+unless ENV['MAZE_SKIP_INSTALL']
   run_required_commands([
     # package up local bugsnag-js so it can be installed in the fixtures
     ['npm', 'pack', '--verbose'],
@@ -10,7 +11,6 @@ unless ENV['MAZE_SKIP_INSTALL'] then
   # install node_modules
   Dir.chdir('features/fixtures') do
     run_required_commands([
-      ['npm', 'install', '--no-package-lock', '--verbose'],
       [
         'npm',
         'install',
@@ -20,6 +20,14 @@ unless ENV['MAZE_SKIP_INSTALL'] then
         "../../bugsnag-js-#{version}.tgz",
       ],
     ])
+  end
+
+  get_package_jsons_for_fixtures.each do |pkg|
+    Dir.chdir(File.dirname pkg) do
+      run_required_commands([
+        ['npm', 'install', '--no-package-lock', '--verbose'],
+      ])
+    end
   end
 else
   puts 'SKIPPING DEPENDENCY INSTALLATION'

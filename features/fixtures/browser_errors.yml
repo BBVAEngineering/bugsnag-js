@@ -1,0 +1,80 @@
+---
+ie_8:
+  handled:
+    errorClass: 'TypeError'
+    errorMessage: "'foo' is undefined"
+
+ie_9:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+ie_10:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+ie_11:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+edge_14:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+edge_15:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+safari_5:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+safari_10:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+opera_47:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+opera_48:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+iphone_4s:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+android_s8:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+firefox_30:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+firefox_56:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+chrome_43:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'
+
+chrome_61:
+  handled:
+    errorClass: 'ReferenceError'
+    errorMessage: 'foo is not defined'

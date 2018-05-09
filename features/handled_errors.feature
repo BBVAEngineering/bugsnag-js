@@ -6,14 +6,15 @@ Scenario Outline: calling notify() with Error
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
-  And the request is valid for the error reporting API
+  And the request is a valid browser payload for the error reporting API
   And the exception "errorClass" equals "Error"
   And the exception "message" equals "bad things"
 
   Examples:
     | type       |
     | script     |
-    | webpack    |
+    | webpack3   |
+    | webpack4   |
     | browserify |
 
 Scenario Outline: calling notify() with Error within try/catch
@@ -21,11 +22,12 @@ Scenario Outline: calling notify() with Error within try/catch
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
-  And the request is valid for the error reporting API
+  And the request is a valid browser payload for the error reporting API
   And the exception matches the "handled" values for the current browser
 
   Examples:
     | type       |
     | script     |
-    | webpack    |
+    | webpack3   |
+    | webpack4   |
     | browserify |
