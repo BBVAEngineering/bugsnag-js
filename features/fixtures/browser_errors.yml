@@ -37,7 +37,7 @@ safari_5:
 safari_10:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "Can't find variable: foo"
 
 opera_47:
   handled:
