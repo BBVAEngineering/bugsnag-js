@@ -1,5 +1,5 @@
-import bugsnag from 'bugsnag-js'
-import config from './lib/config'
+var bugsnag = require('bugsnag-js')
+var config = require('./lib/config')
 
 var bugsnagClient = bugsnag(config)
 
