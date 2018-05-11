@@ -11,7 +11,7 @@ install:
 before_script:
   - npm run build
 script:
-  - bundle exec maze-runner
+  - bundle exec maze-runner --verbose
 env:
   global:
     - BROWSERSTACK_USERNAME: bugsnagplatforms1
