@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/node_modules/bugsnag-js/dist/bugsnag.min.js"></script>
+    <script type="text/javascript">
+      var PORT = window.location.search.match(/PORT=(\d+)/)[1]
+      var bugsnagClient = bugsnag({
+        apiKey: 'ABC',
+        endpoint: 'http://localhost:' + PORT
+      })
+    </script>
+  </head>
+  <body>
+    <pre id="bugsnag-test-state">PENDING</pre>
+    <script>
+      go()
+        .then(function () {})
+        .catch(function (e) {
+          bugsnagClient.notify(e, {
+            beforeSend: function () {
+              setTimeout(function () {
+                document.getElementById('bugsnag-test-state').innerText = 'DONE'
+              }, 5000)
+            }
+          })
+        })
+
+      function go() {
+        return Promise.reject(new Error('bad things'))
+      }
+    </script>
+  </body>
+</html>

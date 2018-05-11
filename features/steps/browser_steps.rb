@@ -45,3 +45,8 @@ Then(/^the request is a valid browser payload for the error reporting API$/) do
     And each element in payload field "events" has "exceptions"
   }
 end
+
+Then("the browser supports {string}") do |expr|
+  cmd = "return typeof #{expr} !== 'undefined'"
+  skip_this_scenario unless $driver.execute_script cmd
+end

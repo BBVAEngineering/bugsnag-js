@@ -2,7 +2,7 @@
   "name": "bugsnag-js-fixtures-handled-browserify",
   "private": true,
   "scripts": {
-    "build": "browserify -o dist/a.js src/a.js && npx browserify -o dist/b.js src/b.js"
+    "build": "browserify -o dist/a.js src/a.js && browserify -o dist/b.js src/b.js && browserify -o dist/c.js src/c.js"
   },
   "dependencies": {
     "browserify": "^16.2.2"
