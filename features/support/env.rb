@@ -44,9 +44,7 @@ get_package_jsons_for_fixtures.each do |pkg|
     unless $fixtures_built[pkg]
       $fixtures_built[pkg] = true
       Dir.chdir(File.dirname pkg) do
-        run_required_commands([
-          ['npm', 'run', 'build'],
-        ])
+        run_command('npm run build')
       end
     end
   end
