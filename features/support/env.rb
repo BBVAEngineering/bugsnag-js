@@ -4,6 +4,9 @@
 # definitions
 
 require 'yaml'
+require 'test/unit'
+include Test::Unit::Assertions
+
 require_relative '../lib/browserstack_driver'
 require_relative '../lib/fixture_package_jsons'
 
