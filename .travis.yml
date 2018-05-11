@@ -4,6 +4,7 @@ language: node_js
 node_js:
   - '10'
 before_install:
+  - npm i -g npm@5.3.0
   - gem install bundler -v 1.16.1
 install:
   - bundle install
