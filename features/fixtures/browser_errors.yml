@@ -32,7 +32,7 @@ edge_15:
 safari_5:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "Can't find variable: foo"
 
 safari_10:
   handled:
@@ -52,7 +52,7 @@ opera_48:
 iphone_4s:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "Can't find variable: foo"
 
 android_s8:
   handled:

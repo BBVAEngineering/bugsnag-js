@@ -24,15 +24,15 @@ env:
     - BROWSER=ie_11
     - BROWSER=edge_14
     - BROWSER=edge_15
-    # - BROWSER=safari_5
+    - BROWSER=safari_5
     - BROWSER=safari_10
-    # - BROWSER=opera_47
-    # - BROWSER=opera_48
-    # - BROWSER=iphone_4s
+    - BROWSER=opera_47
+    - BROWSER=opera_48
+    - BROWSER=iphone_4s
     - BROWSER=android_s8
-    # - BROWSER=firefox_30
+    - BROWSER=firefox_30
     - BROWSER=firefox_56
-    # - BROWSER=chrome_43
+    - BROWSER=chrome_43
     - BROWSER=chrome_61
 addons:
   browserstack:
