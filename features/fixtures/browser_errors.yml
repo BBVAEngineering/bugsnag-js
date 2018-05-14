@@ -7,27 +7,27 @@ ie_8:
 ie_9:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "'foo' is undefined"
 
 ie_10:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "'foo' is undefined"
 
 ie_11:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "'foo' is undefined"
 
 edge_14:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "'foo' is undefined"
 
 edge_15:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: "'foo' is undefined"
 
 safari_5:
   handled:
