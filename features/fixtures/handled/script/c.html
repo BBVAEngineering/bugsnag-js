@@ -13,7 +13,8 @@
   <body>
     <pre id="bugsnag-test-should-run">PENDING</pre>
     <script>
-      document.getElementById('bugsnag-test-should-run').innerText = typeof Promise !== 'undefined'
+      var el = document.getElementById('bugsnag-test-should-run')
+      el.textContent = el.innerText = typeof Promise !== 'undefined'
         ? 'YES'
         : 'NO'
     </script>
@@ -25,7 +26,8 @@
           bugsnagClient.notify(e, {
             beforeSend: function () {
               setTimeout(function () {
-                document.getElementById('bugsnag-test-state').innerText = 'DONE'
+                var el = document.getElementById('bugsnag-test-state')
+                el.textContent = el.innerText = 'DONE'
               }, 5000)
             }
           })

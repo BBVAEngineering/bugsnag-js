@@ -31,7 +31,9 @@ Then(/^the request is a valid browser payload for the error reporting API$/) do
   if !/^ie_(8|9|10)$/.match(ENV['BROWSER'])
     steps %Q{
       Then the "Bugsnag-API-Key" header is not null
-      And the "Content-Type" header equals "application/json"
+      And the "Content-Type" header equals one of:
+        | application/json |
+        | application/json; charset=UTF-8 |
       And the "Bugsnag-Payload-Version" header equals "4.0"
       And the "Bugsnag-Sent-At" header is a timestamp
     }

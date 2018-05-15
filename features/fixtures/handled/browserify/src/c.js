@@ -9,7 +9,8 @@ go()
     bugsnagClient.notify(e, {
       beforeSend: function () {
         setTimeout(function () {
-          document.getElementById('bugsnag-test-state').innerText = 'DONE'
+          var el = document.getElementById('bugsnag-test-state')
+          el.textContent = el.innerText = 'DONE'
         }, 5000)
       }
     })

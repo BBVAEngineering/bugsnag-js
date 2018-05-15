@@ -6,7 +6,8 @@
   <body>
     <pre id="bugsnag-test-should-run">YES</pre>
     <script>
-      document.getElementById('bugsnag-test-should-run').innerText = typeof Promise !== 'undefined'
+      var el = document.getElementById('bugsnag-test-should-run')
+      el.textContent = el.innerText = typeof Promise !== 'undefined'
         ? 'YES'
         : 'NO'
     </script>
