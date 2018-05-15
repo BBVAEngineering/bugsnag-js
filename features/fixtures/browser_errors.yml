@@ -29,7 +29,7 @@ edge_15:
     errorClass: 'ReferenceError'
     errorMessage: "'foo' is undefined"
 
-safari_5:
+safari_6:
   handled:
     errorClass: 'ReferenceError'
     errorMessage: "Can't find variable: foo"
@@ -39,17 +39,12 @@ safari_10:
     errorClass: 'ReferenceError'
     errorMessage: "Can't find variable: foo"
 
-opera_47:
+opera_12:
   handled:
     errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
+    errorMessage: 'Undefined variable: foo'
 
-opera_48:
-  handled:
-    errorClass: 'ReferenceError'
-    errorMessage: 'foo is not defined'
-
-iphone_4s:
+iphone_7:
   handled:
     errorClass: 'ReferenceError'
     errorMessage: "Can't find variable: foo"

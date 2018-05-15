@@ -3,14 +3,15 @@
   <head>
     <script src="/node_modules/bugsnag-js/dist/bugsnag.min.js"></script>
     <script type="text/javascript">
-      var PORT = window.location.search.match(/PORT=(\d+)/)[1]
+      var ENDPOINT = decodeURIComponent(window.location.search.match(/ENDPOINT=(.+)/)[1])
       var bugsnagClient = bugsnag({
         apiKey: 'ABC',
-        endpoint: 'http://localhost:' + PORT
+        endpoint: ENDPOINT
       })
     </script>
   </head>
   <body>
+    <pre id="bugsnag-test-should-run">YES</pre>
     <pre id="bugsnag-test-state">PENDING</pre>
     <script>
       try {

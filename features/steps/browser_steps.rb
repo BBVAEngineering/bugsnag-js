@@ -2,6 +2,15 @@ When("I navigate to the URL {string}") do |path|
   $driver.navigate.to get_test_url path
 end
 
+When("the test should run in this browser") do
+  wait = Selenium::WebDriver::Wait.new(timeout: 10)
+  wait.until {
+    $driver.find_element(id: 'bugsnag-test-should-run') &&
+    $driver.find_element(id: 'bugsnag-test-should-run').text != 'PENDING'
+  }
+  skip_this_scenario if $driver.find_element(id: 'bugsnag-test-should-run').text == 'NO'
+end
+
 When("I let the test page run for up to {int} seconds") do |n|
   wait = Selenium::WebDriver::Wait.new(timeout: n)
   wait.until {
@@ -19,7 +28,7 @@ When("the exception matches the {string} values for the current browser") do |fi
 end
 
 Then(/^the request is a valid browser payload for the error reporting API$/) do
-  if !/^ie_[89]$/.match(ENV['BROWSER'])
+  if !/^ie_(8|9|10)$/.match(ENV['BROWSER'])
     steps %Q{
       Then the "Bugsnag-API-Key" header is not null
       And the "Content-Type" header equals "application/json"
@@ -44,9 +53,4 @@ Then(/^the request is a valid browser payload for the error reporting API$/) do
     And each element in payload field "events" has "unhandled"
     And each element in payload field "events" has "exceptions"
   }
-end
-
-Then("the browser supports {string}") do |expr|
-  cmd = "return typeof #{expr} !== 'undefined'"
-  skip_this_scenario unless $driver.execute_script cmd
 end

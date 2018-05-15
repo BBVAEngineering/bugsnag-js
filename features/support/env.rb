@@ -55,8 +55,17 @@ end
 
 # test helpers
 
+def current_ip
+  # Parses the output of `ifconfig` to retreive the host IP for docker to talk to
+  # Breaks compatability with Windows
+  ip_addr = `ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\\.){3}[0-9]*' | grep -v '127.0.0.1'`
+  ip_list = /((?:[0-9]*\.){3}[0-9]*)/.match(ip_addr)
+  ip_list.captures.first
+end
+
 def get_test_url path
-  "http://localhost:#{$port}#{path}?PORT=#{@script_env['MOCK_API_PORT']}"
+  endpoint = "http://#{current_ip}:#{@script_env['MOCK_API_PORT']}"
+  "http://#{current_ip}:#{$port}#{path}?ENDPOINT=#{URI::encode(endpoint)}"
 end
 
 def get_error_message id

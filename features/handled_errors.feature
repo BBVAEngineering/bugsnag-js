@@ -3,6 +3,7 @@ Feature: Reporting handled errors
 
 Scenario Outline: calling notify() with Error
   When I navigate to the URL "/handled/<type>/a.html"
+  And the test should run in this browser
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
@@ -19,6 +20,7 @@ Scenario Outline: calling notify() with Error
 
 Scenario Outline: calling notify() with Error within try/catch
   When I navigate to the URL "/handled/<type>/b.html"
+  And the test should run in this browser
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
@@ -33,8 +35,8 @@ Scenario Outline: calling notify() with Error within try/catch
     | browserify |
 
 Scenario Outline: calling notify() with Error within Promise catch
-  Given the browser supports "Promise"
   When I navigate to the URL "/handled/<type>/c.html"
+  And the test should run in this browser
   And I let the test page run for up to 10 seconds
   And I wait for 5 seconds
   Then I should receive 1 request
