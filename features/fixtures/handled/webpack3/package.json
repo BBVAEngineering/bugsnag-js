@@ -1,5 +1,5 @@
 {
-  "name": "bugsnag-js-fixtures-handled-webpack4",
+  "name": "bugsnag-js-fixtures-handled-webpack3",
   "private": true,
   "scripts": {
     "build": "webpack"
