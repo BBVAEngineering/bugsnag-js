@@ -2,6 +2,28 @@
 
 <!-- {entry_placeholder} -->
 
+## 4.6.4 (2018-05-28)
+
+<!-- optional: if this is a significant release, describe it in a sentence or two -->
+
+### Added
+- Modify or remove as appropriate
+
+### Changed
+- Modify or remove as appropriate
+
+### Deprecated
+- Modify or remove as appropriate
+
+### Removed
+- Modify or remove as appropriate
+
+### Fixed
+- Modify or remove as appropriate
+
+### Security
+- Modify or remove as appropriate
+
 ## 4.6.3 (2018-05-10)
 
 ### Fixed
