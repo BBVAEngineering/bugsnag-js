@@ -19,7 +19,7 @@
     "transform": "browserify-versionify"
   },
   "scripts": {
-    "preversion": "./bin/env-check && npm run test:basic",
+    "preversion": "npm run test:basic",
     "version": "npm run build && npm run chore && ./bin/update-changelog && git add README.md CHANGELOG.md dist",
     "postversion": "git push && git push --tags && npm publish --tag $(./bin/dist-tag-value)",
     "postpublish": "./bin/cdn-upload",
